@@ -18,17 +18,37 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List list = [];
-  // ignore: prefer_typing_uninitialized_variables
-  var h1;
-  var i=0;
+  List h1 = [
+    Colors.red,
+    Colors.teal,
+    Colors.indigo,
+    Colors.purple.shade300,
+    Colors.lightGreen,
+    Colors.greenAccent,
+    Colors.amber,
+    Colors.orange,
+    Colors.amberAccent,
+    Colors.blueGrey,
+    Colors.deepPurpleAccent,
+  ];
 
   Random num = Random();
+  int? i1;
+  int? i2;
+  int? i3;
+  int? i4;
+  int? i5;
+  int? i6;
 
   @override
   Widget build(BuildContext context) {
+    i1 = num.nextInt(6);
+    i2 = num.nextInt(6);
+    i3 = num.nextInt(6);
+    i4 = num.nextInt(6);
+    i5 = num.nextInt(6);
+    i6 = num.nextInt(6);
     return Scaffold(
-      backgroundColor: const Color(0xff15172B),
       body: Container(
         alignment: Alignment.center,
         child: Column(
@@ -38,141 +58,76 @@ class _MyAppState extends State<MyApp> {
               flex: 1,
             ),
             const Text(
-              "OTP Generator",
+              "Color Palette",
               style: TextStyle(
-                fontSize: 40,
-                color: Color(0xffF6DB87),
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff3BB3F9),
               ),
             ),
-            const Spacer(
-              flex: 1,
-            ),
-            SizedBox(
-              width: MediaQuery.of(context).size.width * 0.8,
-              child: TextField(
-                enabled: true,
-                decoration: InputDecoration(
-                  hintText: "Enter OTP Length",
-                  hintStyle: TextStyle(color: Colors.grey.shade600),
-                  enabledBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFCF6BA),
-                    ),
-                  ),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(
-                      color: Color(0xffFCF6BA),
-                    ),
-                  ),
-                ),
-                style: const TextStyle(color: Colors.white, fontSize: 20),
-                onChanged: (val){
-                  h1=val;
-                },
-              ),
-            ),
-            const Spacer(
-              flex: 1,
-            ),
-            InkWell(
-              onTap: (){
-                setState(() {
-                  if(i==0)
-                  {
-                    if(h1=="1")
-                    {
-                      list.add(num.nextInt(9));
-                    }else if(h1=="2")
-                    {
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                    }else if(h1=="3")
-                    {
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                    }else if(h1=="4")
-                    {
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                    }else if(h1=="5")
-                    {
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                    }else if(h1=="6")
-                    {
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                      list.add(num.nextInt(9));
-                    }
-                    i++;
-                  }
-                });
-              },
-              child: Container(
-                alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.08,
-                width: MediaQuery.of(context).size.width * 0.7,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  boxShadow: const <BoxShadow>[
-                    BoxShadow(
-                        color: Colors.white,
-                        spreadRadius: 1,
-                        blurRadius: 4,
-                        offset: Offset(2, 2)),
-                  ],
-                  gradient: const LinearGradient(
-                    colors: <Color>[
-                      Color(0xffFFE8B8),
-                      Color(0xffF6DB87),
-                    ],
-                  ),
-                ),
-                child: const Text(
-                  "Genarate OTP",
-                  style: TextStyle(
-                    fontSize: 25,
-                    color: Color(0xff15172B),
-                  ),
-                ),
+            const Text(
+              "Generator",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Color(0xff3BB3F9),
               ),
             ),
             const Spacer(
               flex: 1,
             ),
             Container(
-              alignment: Alignment.center,
-              height: MediaQuery.of(context).size.height * 0.1,
-              width: MediaQuery.of(context).size.height * 0.45,
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: MediaQuery.of(context).size.width * 0.3,
               decoration: BoxDecoration(
-                color: Colors.white,
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Row(
+              child: Column(
                 children: [
-                  ...list.map((e) => Expanded(
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "$e",
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          color: Colors.black,
-                        ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: h1[i1!],
+                      borderRadius: const BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        topRight: Radius.circular(20),
                       ),
                     ),
-                  ),),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: h1[i2!],
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: h1[i3!],
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: h1[i4!],
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.1,
+                    decoration: BoxDecoration(
+                      color: h1[i5!],
+                    ),
+                  ),
+                  Container(
+                    height: MediaQuery.of(context).size.height * 0.096,
+                    decoration: BoxDecoration(
+                      color: h1[i6!],
+                      borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -180,38 +135,26 @@ class _MyAppState extends State<MyApp> {
               flex: 1,
             ),
             InkWell(
-              onTap: (){
+              onTap: () {
                 setState(() {
-                  list.clear();
-                  i=0;
+                  h1[i1!];
                 });
               },
               child: Container(
                 alignment: Alignment.center,
-                height: MediaQuery.of(context).size.height * 0.06,
-                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.08,
+                width: MediaQuery.of(context).size.width * 0.6,
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  boxShadow: const <BoxShadow>[
-                    BoxShadow(
-                      color: Colors.white,
-                      spreadRadius: 1,
-                      blurRadius: 4,
-                    ),
-                  ],
-                  gradient: const LinearGradient(
-                    colors: <Color>[
-                      Color(0xffFFE8B8),
-                      Color(0xffF6DB87),
-                    ],
-                  ),
+                  color: const Color(0xffD8E6F4),
+                  border: Border.all(color: const Color(0xff3BB3F9), width: 2),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 child: const Text(
-                  "Reset",
+                  "Generator",
                   style: TextStyle(
+                    color: Color(0xff3BB3F9),
+                    fontWeight: FontWeight.bold,
                     fontSize: 25,
-                    color: Color(0xff15172B),
                   ),
                 ),
               ),
